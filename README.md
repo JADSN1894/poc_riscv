@@ -1,9 +1,8 @@
 # Debian risc-v image
 
-1. [**DQIB, the Debian Quick Image Baker**](https://www.giovannimascellani.eu/dqib-debian-quick-image-baker.html)
-1. [**Setting up a riscv64 virtual machine**](https://wiki.debian.org/RISC-V)
-1. [**Getting started with RISC-V in QEMU**](https://colatkinson.site/linux/riscv/2021/01/27/riscv-qemu/)
+## Manual devcontainer setup
 
+***Run:*** `./.devcontainer/install_tooling.sh `
 
 ## Qemu (Manually changing the number of cores and memory)
 
@@ -38,3 +37,11 @@ qemu-system-riscv64  \
 1. `apt install rustup -y`
 1. `apt install software-properties-common git vim -y`
 1. `rustup update stable`
+
+## Links
+
+[**DQIB, the Debian Quick Image Baker**](https://www.giovannimascellani.eu/dqib-debian-quick-image-baker.html)
+
+[**Setting up a riscv64 virtual machine**](https://wiki.debian.org/RISC-V)
+
+[**Getting started with RISC-V in QEMU**](https://colatkinson.site/linux/riscv/2021/01/27/riscv-qemu/)

@@ -3,7 +3,7 @@
 set -ex
 
 sudo apt-get update
-sudo apt-get install build-essential opensbi u-boot-qemu file cpio bc -y
+sudo apt-get install build-essential qemu-system-riscv64 opensbi u-boot-qemu file cpio bc -y
 
 mkdir -p $HOME/.local/bin
 cd $HOME/.local/bin
