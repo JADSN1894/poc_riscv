@@ -1,8 +1,8 @@
 # Debian risc-v image
 
-[**DQIB, the Debian Quick Image Baker**](https://www.giovannimascellani.eu/dqib-debian-quick-image-baker.html)
-[**Setting up a riscv64 virtual machine**](https://wiki.debian.org/RISC-V)
-[**Getting started with RISC-V in QEMU**](https://colatkinson.site/linux/riscv/2021/01/27/riscv-qemu/)
+1. [**DQIB, the Debian Quick Image Baker**](https://www.giovannimascellani.eu/dqib-debian-quick-image-baker.html)
+1. [**Setting up a riscv64 virtual machine**](https://wiki.debian.org/RISC-V)
+1. [**Getting started with RISC-V in QEMU**](https://colatkinson.site/linux/riscv/2021/01/27/riscv-qemu/)
 
 
 ## Qemu (Manually changing the number of cores and memory)
@@ -26,8 +26,6 @@ qemu-system-riscv64  \
 
 ```
 
- <!-- $(echo "$(nproc)-1" | bc) -->
- <!-- echo "$(grep MemTotal /proc/meminfo | awk '{print $2}') / 1024 / 1024 / 2" | bc | awk '{printf "%.1G\n", $1}' -->
 ## Inside qemu
 
 1. debian login: `root`
