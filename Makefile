@@ -5,7 +5,7 @@ setup: clean
 	sudo apt-get install opensbi u-boot-qemu qemu-system-riscv64 -y
 
 build: setup
-	# wget -c 'https://gitlab.com/api/v4/projects/giomasce%2Fdqib/jobs/artifacts/master/download?job=convert_riscv64-virt' -O riscv64-virt.zip
+	wget -c 'https://gitlab.com/api/v4/projects/giomasce%2Fdqib/jobs/artifacts/master/download?job=convert_riscv64-virt' -O riscv64-virt.zip
 	unzip riscv64-virt.zip
 	cd dqib_riscv64-virt/
 	qemu-system-riscv64  \
