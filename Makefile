@@ -2,7 +2,7 @@ clean:
 	rm -rfv ./dqib_riscv64-virt/ riscv64-virt.zip
 
 setup: clean
-	sudo apt-get install opensbi u-boot-qemu qemu-system-riscv64 -y
+	sudo apt-get install opensbi u-boot-qemu qemu-system-riscv64 gcc-riscv64-linux-gnu bc cpio -y
 
 build: setup
 	wget -c 'https://gitlab.com/api/v4/projects/giomasce%2Fdqib/jobs/artifacts/master/download?job=convert_riscv64-virt' -O riscv64-virt.zip
@@ -10,7 +10,7 @@ build: setup
 	cd dqib_riscv64-virt/
 	qemu-system-riscv64  \
 		-machine 'virt' \
-		-smp 1 \
+		-smp $(echo "$(nproc)-1" | bc) \
 		-cpu 'rv64' \
 		-m 1G \
 		-device virtio-blk-device,drive=hd \
@@ -22,3 +22,8 @@ build: setup
 		-object rng-random,filename=/dev/urandom,id=rng \
 		-device virtio-rng-device,rng=rng -nographic \
 		-append "root=LABEL=rootfs console=ttyS0"
+
+compile:	
+	@rm -rfv hello
+	@riscv64-linux-gnu-as hello.s -o hello.o
+	@riscv64-linux-gnu-gcc -o hello hello.o -nostdlib -static
